@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Pronostico</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    </head>
+    <style>
+      body {
+        font: 10px sans-serif;
+      }
+
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+      .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+      }
+</style>
+    <body>
+
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a class="atab" href="#a_tab" data-toggle="tab">A</a></li>
+                <li><a class="btab" href="#b_tab" data-toggle="tab">B</a></li>
+                <li><a class="ctab" href="#c_tab" data-toggle="tab">C</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="a_tab">
+                    <h1>A</h1>
+                    <acontent></acontent>
+                </div>
+                <div class="tab-pane" id="b_tab">
+                    <h1>B</h1>
+                    <bcontent></bcontent>
+                </div>
+                <div class="tab-pane" id="c_tab">
+                    <h1>C</h1>
+                    <ccontent></ccontent>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="http://d3js.org/d3.v3.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+        <script>
+            $.ajaxSetup ({
+                // Disable caching of AJAX responses
+                // Used when debugging
+                cache: false
+            });
+
+            $.getScript("a.js");
+            $(".atab").click(function() {
+                $.getScript("a.js");
+            })
+        </script>
+        <script>
+            $(".btab").click(function() {
+                $.getScript("b.js");
+            })
+        </script>
+        <script>
+            $(".ctab").click(function() {
+                $.getScript("c.js");
+            })
+        </script>
+    </body>
+</html>
