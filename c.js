@@ -42,7 +42,7 @@ var scaleY = d3.scale.linear()
 
 // Shape generators
 var line = d3.svg.line()
-  .interpolate("monotone")
+  .interpolate("basic")
   .x(function(datum) {
     return scaleX(datum.timestamp);
   })
